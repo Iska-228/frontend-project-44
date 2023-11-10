@@ -1,5 +1,10 @@
-#!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import {getName} from '../src/cli.js';
+#! /usr/bin/env node
+/* eslint-disable */
+/* eslint-disable no-console */
+/* eslint-disable linebreak-style */
 
-getName();
+import { getName } from '../src/cli.js';
+import {isEven,task} from './brain-even.js';
+
+const name = getName();
+isEven(name);

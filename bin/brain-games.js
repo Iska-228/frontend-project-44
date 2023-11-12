@@ -7,4 +7,5 @@ import { getName } from '../src/cli.js';
 import {isEven,task} from './brain-even.js';
 
 const name = getName();
-isEven(name);
+
+export {name};

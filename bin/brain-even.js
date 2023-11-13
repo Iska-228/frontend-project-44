@@ -9,19 +9,16 @@ const task = (rightAnswers,name) => {
     const number=Math.floor(Math.random()*100);
     console.log(`Question: ${number}`);
     let answer = readlineSync.question('Your answer: ');
-    if((number%2==0&&answer=='yes')||(number%2!=0&&answer=='no')){
+    let rightAns= number % 2 == 0 ? 'yes' : 'no';
+    if(rightAns==answer){
         console.log('Correct!');
         rightAnswers++;
-    }
-    else if(answer=='no'){
-        console.log(`'${answer}' is wrong answer ;(. Correct answer was 'yes'`);
-        return false;
+        if(rightAnswers==3)return true;
     }
     else {
-        console.log(`'${answer}' is wrong answer ;(. Correct answer was 'no'`);
+        console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAns}'`);
         return false;
     }
-    if(rightAnswers==3)return true;
     task(rightAnswers,name);
 }
 

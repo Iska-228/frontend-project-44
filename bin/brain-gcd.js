@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import { getName,logic } from '../src/cli.js';
+import { getName,logic, check } from '../src/cli.js';
 
 const name = getName();
 
@@ -10,22 +10,19 @@ const getGcd = (first, second) => {
     }
 }
 
-const task = (rightAnswers, name) => {
+const task = (rightAnswers) => {
+    if(rightAnswers==3)return true;
     const first = Math.floor(Math.random()*100);
     const second = Math.floor(Math.random()*100);
     console.log(`Question: ${first} ${second}`);
     const gcdAns = getGcd(first,second);
     let userAnswer = readlineSync.question('Your answer: ');
-    if(gcdAns == userAnswer) {
-        console.log('Correct!');
-        rightAnswers++;
-        if(rightAnswers==3)return true;
-        task(rightAnswers,name);
+    const abo = check(rightAnswers,userAnswer,gcdAns);
+    if(abo == true) {
+        rightAnswers+=1;
+        task(rightAnswers);
     }
-    else{
-        console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${gcdAns}'`);
-        return false;
-    }
+    else return false;
 }
 
 const gcd = (name) => {

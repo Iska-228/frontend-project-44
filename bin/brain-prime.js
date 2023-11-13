@@ -20,7 +20,6 @@ const task = (rightAnswers) => {
     const ab = check(rightAnswers,answer,isPrime);
     if(ab == true) {
         rightAnswers++;
-        console.log(rightAnswers);
         task(rightAnswers);
     }
     else return false;

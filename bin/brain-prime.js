@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 /* eslint-disable no-undef */
 import readlineSync from 'readline-sync';
-import { getName, logic } from '../src/cli.js';
+import { getName, logic, check } from '../src/cli.js';
 
 const name = getName();
 
-const task = (rightAnswers,name) => {
+const task = (rightAnswers) => {
+    if(rightAnswers == 3) return true;
     const number = Math.floor(Math.random()*121);
     let isPrime = 'yes';
     for(let i = 2;i<number;i++){
@@ -16,16 +17,13 @@ const task = (rightAnswers,name) => {
     }
     console.log(`Question: ${number}`);
     let answer = readlineSync.question('Your answer: ');
-    if (answer == isPrime) {
-        console.log('Correct!');
+    const ab = check(rightAnswers,answer,isPrime);
+    if(ab == true) {
         rightAnswers++;
-        if(rightAnswers == 3) return true;
-        task(rightAnswers,name);
+        console.log(rightAnswers);
+        task(rightAnswers);
     }
-    else {
-        console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isPrime}'`);
-        return false;
-    }
+    else return false;
 }
 
 const prime = (name) => {

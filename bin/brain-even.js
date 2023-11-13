@@ -9,7 +9,7 @@ const task = (rightAnswers,name) => {
     const number=Math.floor(Math.random()*100);
     console.log(`Question: ${number}`);
     let answer = readlineSync.question('Your answer: ');
-    let rightAns= number % 2 == 0 ? 'yes' : 'no';
+    let rightAns = number % 2 == 0 ? 'yes' : 'no';
     if(rightAns==answer){
         console.log('Correct!');
         rightAnswers++;

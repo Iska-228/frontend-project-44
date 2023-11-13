@@ -13,5 +13,16 @@ const logic = (userAnswer, name) => {
     return;
 }
 
+const check = (numberOfAnswers,userAns,rightAns) => {
+    if (userAns == rightAns) {
+        console.log('Correct!');
+        return true;
+    }
+    else{
+        console.log(`'${userAns}' is wrong answer ;(. Correct answer was '${rightAns}'`);
+        return false;
+    }
+}
 
-export { getName, logic };
+
+export { getName, logic, check };

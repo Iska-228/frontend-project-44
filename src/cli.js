@@ -8,7 +8,7 @@ const getName = () => {
 };
 
 const logic = (userAnswer, name) => {
-    if(userAnswer == undefined)console.log(`Congratulations, ${name}!`);
+    if(userAnswer != false)console.log(`Congratulations, ${name}!`);
     else console.log(`Let's try again, ${name}!`);
     return;
 }

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-undef */
 import readlineSync from 'readline-sync';
 import { getName } from '../src/cli.js';
 

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import { getName } from '../src/cli.js';
+import { getName, logic } from '../src/cli.js';
 const name = getName();
 
-const exp = (rightAnswers,name) => {
+const exp = (rightAnswers, name) => {
     if(rightAnswers === 3) {
         return true;
     }
@@ -50,8 +50,7 @@ const exp = (rightAnswers,name) => {
 const calc = (name) => {
     console.log('What is the result of the expression?');
     const a = exp(0,name);
-    if(a==undefined)console.log(`Congratulations, ${name}`);
-    else console.log(`Let's try again, ${name}!`);
+    logic(a,name);
 }
 
 calc(name);

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* eslint-disable no-undef */
 import readlineSync from 'readline-sync';
-import { getName } from '../src/cli.js';
+import { getName, logic } from '../src/cli.js';
 
 const name = getName();
 
@@ -31,8 +31,7 @@ const task = (rightAnswers,name) => {
 const prime = (name) => {
     console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
     const result = task(0,name);
-    if(result!=false)console.log(`Congratulations, ${name}!`);
-    else console.log(`Let's try again, ${name}!`);
+    logic(result,name);
 }
 
 prime(name);

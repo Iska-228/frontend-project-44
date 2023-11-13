@@ -1,7 +1,3 @@
-/* eslint-disable */
-/* eslint-disable linebreak-style */
-/* eslint-disable indent */
-/* eslint-disable no-console */
 import readlineSync from 'readline-sync';
 
 const getName = () => {
@@ -11,4 +7,11 @@ const getName = () => {
     return userName;
 };
 
-export { getName };
+const logic = (userAnswer, name) => {
+    if(userAnswer == undefined)console.log(`Congratulations, ${name}!`);
+    else console.log(`Let's try again, ${name}!`);
+    return;
+}
+
+
+export { getName, logic };

@@ -23,7 +23,7 @@ const task = (rightAnswers) => {
   if (parseInt(userAnswer, 10) === rightAnsw) {
     console.log('Correct!');
     const abobAns = rightAnswers + 1;
-    if (rightAnswers === 3) return true;
+    if (abobAns === 3) return true;
     return task(abobAns);
   }
 

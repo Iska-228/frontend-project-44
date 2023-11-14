@@ -5,7 +5,7 @@ import { getName, logic } from '../src/cli.js';
 const name = getName();
 
 const task = (rightAnswers, name) => {
-    const progKolvoEl = Math.floor(Math.random()*5+5);//*(max-min)+min
+    const progKolvoEl = 10;//*(max-min)+min
     const progN = Math.floor(Math.random()*29+1);
     const firstEl = Math.floor(Math.random()*19+1);
     const arr = [];

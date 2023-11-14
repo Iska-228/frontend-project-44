@@ -32,7 +32,7 @@ const task = (rightAnswers, name) => {
 }
 
 const progression = (name) => {
-    console.log('Find the greatest common divisor of given numbers.');
+    console.log('What number is missing in the progression?');
     const result = task(0,name);
     logic(result,name);
 }

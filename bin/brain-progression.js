@@ -22,7 +22,7 @@ const task = (rightAnswers, name) => {
         console.log('Correct!');
         rightAnswers++;
         if(rightAnswers==3)return true;
-        task(rightAnswers,name);
+        return task(rightAnswers,name);
         
     }
     else{

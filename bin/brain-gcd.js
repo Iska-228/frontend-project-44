@@ -20,7 +20,7 @@ const task = (rightAnswers) => {
     const abo = check(rightAnswers,userAnswer,gcdAns);
     if(abo == true) {
         rightAnswers+=1;
-        task(rightAnswers);
+        return task(rightAnswers);
     }
     else return false;
 }

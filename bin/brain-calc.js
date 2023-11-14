@@ -39,7 +39,7 @@ const exp = (rightAnswers, name) => {
     if(userAnswer == rightAnsw) {
         console.log('Correct!');
         rightAnswers++;
-        exp(rightAnswers, name);
+        return exp(rightAnswers, name);
     }
     else{
         console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnsw}'`);

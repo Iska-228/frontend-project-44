@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import readlineSync from 'readline-sync';
 
 const logic = (userAnswer, name) => (userAnswer !== false ? console.log(`Congratulations, ${name}!`) : console.log(`Let's try again, ${name}!`));
 
@@ -11,4 +12,15 @@ const check = (numberOfAnswers, userAns, rightAns) => {
   return false;
 };
 
-export { logic, check };
+const makeQuestion = (nums) => {
+  console.log(`Question: ${nums.join(' ')}`);
+};
+
+const getAns = () => {
+  const userAns = readlineSync.question('Your answer: ');
+  return userAns;
+};
+
+export {
+  logic, check, makeQuestion, getAns,
+};

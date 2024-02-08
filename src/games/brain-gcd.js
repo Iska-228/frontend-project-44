@@ -1,8 +1,9 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-console */
-import readlineSync from 'readline-sync';
 import getName from '../cli.js';
-import { logic, check } from '../index.js';
+import {
+  logic, check, makeQuestion, getAns,
+} from '../index.js';
 
 const name = getName();
 
@@ -18,9 +19,9 @@ const task = (rightAnswers) => {
   let abobAns = rightAnswers;
   const first = Math.floor(Math.random() * 100);
   const second = Math.floor(Math.random() * 100);
-  console.log(`Question: ${first} ${second}`);
+  makeQuestion([first, second]);
   const gcdAns = getGcd(first, second);
-  const userAnswer = readlineSync.question('Your answer: ');
+  const userAnswer = getAns();
   const abo = check(rightAnswers, parseInt(userAnswer, 10), gcdAns);
   if (abo === true) {
     abobAns += 1;

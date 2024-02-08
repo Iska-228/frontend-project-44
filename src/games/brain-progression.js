@@ -1,8 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable import/extensions */
-import readlineSync from 'readline-sync';
 import getName from '../cli.js';
-import { logic } from '../index.js';
+import { logic, makeQuestion, getAns } from '../index.js';
 
 const name = getName();
 
@@ -18,8 +17,8 @@ const task = (rightAnswers) => {
   const censPos = Math.floor(Math.random() * (progKolvoEl - 1) + 1);
   const rightAnsw = arr[censPos];
   arr[censPos] = '..';
-  console.log(`Question: ${arr.join(' ')}`);
-  const userAnswer = readlineSync.question('Your answer: ');
+  makeQuestion(arr);
+  const userAnswer = getAns();
   if (parseInt(userAnswer, 10) === rightAnsw) {
     console.log('Correct!');
     const abobAns = rightAnswers + 1;

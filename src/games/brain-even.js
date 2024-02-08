@@ -1,16 +1,15 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-console */
-import readlineSync from 'readline-sync';
 import getName from '../cli.js';
-import { logic } from '../index.js';
+import { logic, makeQuestion, getAns } from '../index.js';
 
 const name = getName();
 
 const task = (rightAnswers) => {
   let abobAns = rightAnswers;
   const number = Math.floor(Math.random() * 100);
-  console.log(`Question: ${number}`);
-  const answer = readlineSync.question('Your answer: ');
+  makeQuestion([number]);
+  const answer = getAns();
   const rightAns = number % 2 === 0 ? 'yes' : 'no';
   if (rightAns === answer) {
     console.log('Correct!');

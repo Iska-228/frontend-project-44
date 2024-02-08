@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 /* eslint-disable import/extensions */
-
-import readlineSync from 'readline-sync';
 import getName from '../cli.js';
-import { logic, check } from '../index.js';
+import {
+  logic, check, makeQuestion, getAns,
+} from '../index.js';
 
 const name = getName();
 
@@ -17,8 +17,8 @@ const task = (rightAnswers) => {
       break;
     }
   }
-  console.log(`Question: ${number}`);
-  const answer = readlineSync.question('Your answer: ');
+  makeQuestion([number]);
+  const answer = getAns();
   const ab = check(rightAnswers, answer, isPrime);
   if (ab === true) {
     const abobAns = rightAnswers + 1;

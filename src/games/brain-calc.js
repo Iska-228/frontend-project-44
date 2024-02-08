@@ -1,8 +1,8 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-console */
-import readlineSync from 'readline-sync';
+
 import getName from '../cli.js';
-import { logic } from '../index.js';
+import { logic, makeQuestion, getAns } from '../index.js';
 
 const name = getName();
 
@@ -18,8 +18,8 @@ const exp = (rightAnswers) => {
     case 2: operation = '*'; break;
     default: break;
   }
-  console.log(`Question: ${first} ${operation} ${second}`);
-  const userAnswer = readlineSync.question('Your answer: ');
+  makeQuestion([first, operation, second]);
+  const userAnswer = getAns();
   let rightAnsw = 0;
   switch (operation) {
     case '+': rightAnsw = first + second; break;

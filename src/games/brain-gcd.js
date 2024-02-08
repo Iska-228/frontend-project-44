@@ -22,7 +22,7 @@ const task = (rightAnswers) => {
   makeQuestion([first, second]);
   const gcdAns = getGcd(first, second);
   const userAnswer = getAns();
-  const abo = check(rightAnswers, parseInt(userAnswer, 10), gcdAns);
+  const abo = check(parseInt(userAnswer, 10), gcdAns);
   if (abo === true) {
     abobAns += 1;
     return task(abobAns);

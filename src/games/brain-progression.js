@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
 /* eslint-disable import/extensions */
 import getName from '../cli.js';
-import { logic, makeQuestion, getAns } from '../index.js';
+import {
+  logic, makeQuestion, getAns, check,
+} from '../index.js';
 
 const name = getName();
 
@@ -19,14 +21,11 @@ const task = (rightAnswers) => {
   arr[censPos] = '..';
   makeQuestion(arr);
   const userAnswer = getAns();
-  if (parseInt(userAnswer, 10) === rightAnsw) {
-    console.log('Correct!');
+  if (check(parseInt(userAnswer, 10), rightAnsw) === true) {
     const abobAns = rightAnswers + 1;
     if (abobAns === 3) return true;
     return task(abobAns);
   }
-
-  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnsw}'`);
   return false;
 };
 

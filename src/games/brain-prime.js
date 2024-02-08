@@ -19,7 +19,7 @@ const task = (rightAnswers) => {
   }
   makeQuestion([number]);
   const answer = getAns();
-  const ab = check(rightAnswers, answer, isPrime);
+  const ab = check(answer, isPrime);
   if (ab === true) {
     const abobAns = rightAnswers + 1;
     return task(abobAns);

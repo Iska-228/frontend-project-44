@@ -2,7 +2,9 @@
 /* eslint-disable no-console */
 
 import getName from '../cli.js';
-import { logic, makeQuestion, getAns } from '../index.js';
+import {
+  logic, makeQuestion, getAns, check,
+} from '../index.js';
 
 const name = getName();
 
@@ -28,19 +30,17 @@ const exp = (rightAnswers) => {
     default: break;
   }
   let abobAns = rightAnswers;
-  if (parseInt(userAnswer, 10) === rightAnsw) {
-    console.log('Correct!');
+  if (check(parseInt(userAnswer, 10), rightAnsw) === true) {
     abobAns += 1;
     return exp(abobAns);
   }
-  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnsw}'`);
   return false;
 };
 
-const calc = () => {
+const callCalc = () => {
   console.log('What is the result of the expression?');
   const a = exp(0, name);
   logic(a, name);
 };
 
-export default calc;
+export default callCalc;

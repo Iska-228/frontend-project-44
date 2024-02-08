@@ -3,7 +3,7 @@ import readlineSync from 'readline-sync';
 
 const logic = (userAnswer, name) => (userAnswer !== false ? console.log(`Congratulations, ${name}!`) : console.log(`Let's try again, ${name}!`));
 
-const check = (numberOfAnswers, userAns, rightAns) => {
+const check = (userAns, rightAns) => {
   if (userAns === rightAns) {
     console.log('Correct!');
     return true;

@@ -31,16 +31,16 @@ const exp = (rightAnswers) => {
   if (parseInt(userAnswer, 10) === rightAnsw) {
     console.log('Correct!');
     abobAns += 1;
-    return exp(abobAns, name);
+    return exp(abobAns);
   }
   console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnsw}'`);
   return false;
 };
 
-const calc = (username) => {
+const calc = () => {
   console.log('What is the result of the expression?');
-  const a = exp(0, username);
-  logic(a, username);
+  const a = exp(0, name);
+  logic(a, name);
 };
 
 export default calc;

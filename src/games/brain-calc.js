@@ -6,18 +6,21 @@ import {
   makeQuestion, getAns, checkAns,
 } from '../index.js';
 
+const getExpression = () => {
+  const ExpressionNumber = Math.floor(Math.random() * 100) % 3;
+  switch (ExpressionNumber) {
+    case 0: return '+';
+    case 1: return '-';
+    case 2: return '*';
+    default: return 0;
+  }
+};
+
 const callCalc = (rightAnswers) => {
   if (rightAnswers === 3) return true;
   const firstNumber = Math.floor(Math.random() * 100);
   const secondNumber = Math.floor(Math.random() * 100);
-  const ExpressionNumber = Math.floor(Math.random() * 100) % 3;
-  let mathExp = '';
-  switch (ExpressionNumber) {
-    case 0: mathExp = '+'; break;
-    case 1: mathExp = '-'; break;
-    case 2: mathExp = '*'; break;
-    default: break;
-  }
+  const mathExp = getExpression();
   makeQuestion([firstNumber, mathExp, secondNumber]);
   const userAnswer = getAns();
   let rightAnsw = 0;

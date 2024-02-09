@@ -1,14 +1,11 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-console */
 
-import getName from '../cli.js';
 import {
-  logic, makeQuestion, getAns, check,
+  makeQuestion, getAns, check,
 } from '../index.js';
 
-const name = getName();
-
-const exp = (rightAnswers) => {
+const callCalc = (rightAnswers) => {
   if (rightAnswers === 3) return true;
   const first = Math.floor(Math.random() * 100);
   const second = Math.floor(Math.random() * 100);
@@ -32,15 +29,9 @@ const exp = (rightAnswers) => {
   let abobAns = rightAnswers;
   if (check(parseInt(userAnswer, 10), rightAnsw) === true) {
     abobAns += 1;
-    return exp(abobAns);
+    return callCalc(abobAns);
   }
   return false;
-};
-
-const callCalc = () => {
-  console.log('What is the result of the expression?');
-  const a = exp(0, name);
-  logic(a, name);
 };
 
 export default callCalc;

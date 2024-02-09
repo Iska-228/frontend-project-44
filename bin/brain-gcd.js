@@ -1,6 +1,10 @@
 #!/usr/bin/env node
-/* eslint-disable import/extensions */
 /* eslint-disable no-console */
-import gcd from '../src/games/brain-gcd.js';
+/* eslint-disable import/extensions */
+import { playGame } from '../src/index.js';
 
-gcd();
+playGame(2);
+
+// import gcd from '../src/games/brain-gcd.js';
+
+// gcd(2);

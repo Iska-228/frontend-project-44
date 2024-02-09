@@ -1,11 +1,8 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-console */
-import getName from '../cli.js';
 import {
-  logic, check, makeQuestion, getAns,
+  check, makeQuestion, getAns,
 } from '../index.js';
-
-const name = getName();
 
 const getGcd = (first, second) => {
   for (let i = Math.min(first, second); i > 0; i -= 1) {
@@ -14,7 +11,7 @@ const getGcd = (first, second) => {
   return 0;
 };
 
-const task = (rightAnswers) => {
+const findGcd = (rightAnswers) => {
   if (rightAnswers === 3) return true;
   let abobAns = rightAnswers;
   const first = Math.floor(Math.random() * 100);
@@ -25,15 +22,9 @@ const task = (rightAnswers) => {
   const abo = check(parseInt(userAnswer, 10), gcdAns);
   if (abo === true) {
     abobAns += 1;
-    return task(abobAns);
+    return findGcd(abobAns);
   }
   return false;
 };
 
-const gcd = () => {
-  console.log('Find the greatest common divisor of given numbers.');
-  const result = task(0, name);
-  logic(result, name);
-};
-
-export default gcd;
+export default findGcd;

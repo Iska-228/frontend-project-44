@@ -1,13 +1,10 @@
 /* eslint-disable no-console */
 /* eslint-disable import/extensions */
-import getName from '../cli.js';
 import {
-  logic, makeQuestion, getAns, check,
+  makeQuestion, getAns, check,
 } from '../index.js';
 
-const name = getName();
-
-const task = (rightAnswers) => {
+const callProgression = (rightAnswers) => {
   const progKolvoEl = Math.floor(Math.random() * 5 + 5);//* (max-min)+min
   const progN = Math.floor(Math.random() * 29 + 1);
   const firstEl = Math.floor(Math.random() * 19 + 1);
@@ -24,15 +21,9 @@ const task = (rightAnswers) => {
   if (check(parseInt(userAnswer, 10), rightAnsw) === true) {
     const abobAns = rightAnswers + 1;
     if (abobAns === 3) return true;
-    return task(abobAns);
+    return callProgression(abobAns);
   }
   return false;
 };
 
-const progression = () => {
-  console.log('What number is missing in the progression?');
-  const result = task(0, name);
-  logic(result, name);
-};
-
-export default progression;
+export default callProgression;

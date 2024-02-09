@@ -5,19 +5,22 @@ import {
   checkAns, makeQuestion, getAns,
 } from '../index.js';
 
+const primeCheck = (number) => {
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) {
+      return 'no';
+    }
+  }
+  return 'yes';
+};
+
 const ifPrime = (rightAnswers) => {
   if (rightAnswers === 3) return true;
   const number = Math.floor(Math.random() * 121);
-  let isPrime = 'yes';
-  for (let i = 2; i < number; i += 1) {
-    if (number % i === 0) {
-      isPrime = 'no';
-      break;
-    }
-  }
+  const rightAnswer = primeCheck(number);
   makeQuestion([number]);
   const userAnswer = getAns();
-  if (checkAns(userAnswer, isPrime) === true) {
+  if (checkAns(userAnswer, rightAnswer) === true) {
     const abobAns = rightAnswers + 1;
     return ifPrime(abobAns);
   }

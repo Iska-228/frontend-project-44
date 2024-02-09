@@ -1,7 +1,8 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable no-console */
 /* eslint-disable import/extensions */
 import {
-  check, makeQuestion, getAns,
+  checkAns, makeQuestion, getAns,
 } from '../index.js';
 
 const ifPrime = (rightAnswers) => {
@@ -15,9 +16,8 @@ const ifPrime = (rightAnswers) => {
     }
   }
   makeQuestion([number]);
-  const answer = getAns();
-  const ab = check(answer, isPrime);
-  if (ab === true) {
+  const userAnswer = getAns();
+  if (checkAns(userAnswer, isPrime) === true) {
     const abobAns = rightAnswers + 1;
     return ifPrime(abobAns);
   }
